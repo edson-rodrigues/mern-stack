@@ -19,5 +19,17 @@ router.delete('/:id', async (req, res) =>{
     res.json({'message': 'deleted'})
 })
 
+router.post('/', (req, res) => {
+    user = new User({
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password
+
+    })
+    user.save(()=>{
+        res.json(user)
+    })
+})
+
 
 module.exports = router
