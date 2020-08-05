@@ -1,5 +1,5 @@
 const express = require('express')
-const User = require('..models/index')
+const User = require('../models/index')   
 const router = express.Router()
 
 
@@ -29,6 +29,11 @@ router.post('/', (req, res) => {
     user.save(()=>{
         res.json(user)
     })
+})
+
+router.put('/:id', async(req, res) =>{
+   await User.findByIdAndUpdate(req.params.id, req.body)
+   res.json({'message': 'updated'})
 })
 
 
