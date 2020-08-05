@@ -12,5 +12,7 @@ app.use(express.urlencoded({
 }))
 app.use(cors())
 
+app.use('/api', require('./routes/index'))
+
 
 app.listen(port)
